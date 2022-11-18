@@ -135,9 +135,11 @@ describe ("The smart spaza", function() {
         const spaza = await spazaSuggest.spazaLogin(spazaCode);
         assert.equal('Spaza 101', spaza.shop_name);
 
-        const suggesstions = await spazaSuggest.suggestionsForArea(area1.id);
+        const suggestions = await spazaSuggest.suggestionsForArea(area1.id);
 
-        await spazaSuggest.acceptSuggestion(suggesstions[0].id, spaza.id);
+        await spazaSuggest.acceptSuggestion(suggestions[0].id, spaza.id);
+        await spazaSuggest.acceptSuggestion(suggestions[0].id, spaza.id);
+        
         const acceptedBySpaza = await spazaSuggest.acceptedSuggestions(spaza.id);
 
         assert.equal(1, acceptedBySpaza.length);

@@ -77,11 +77,17 @@ export default function SpazaSuggest (db){
     //     ``
     // }
     
-    async function acceptSuggestion(suggestionId, spazaId) {
-        await db.none(`insert into accepted_suggestion(suggestion_id, spaza_id) values ($1, $2)`,
-            [suggestionId, spazaId])
+    async function alreadyAcceptedSuggestionForSpaza(suggestionId, spazaId) {
+        const count = await db.one(`select count(*) from accepted_suggestion where suggestion_id = $1 and spaza_id = $2`,
+            [suggestionId, spazaId], row => row.count);
+        return count == 1;
     }
 
+    async function acceptSuggestion(suggestionId, spazaId) {
+        if (!await alreadyAcceptedSuggestionForSpaza(suggestionId, spazaId)){
+            await db.none(`insert into accepted_suggestion(suggestion_id, spaza_id) values ($1, $2)`, [suggestionId, spazaId])
+        }
+    }
 
     // return all the accepted suggestions for the spazaId provided
     async function acceptedSuggestions(spazaId) {
