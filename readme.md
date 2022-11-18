@@ -65,7 +65,7 @@ Method name | Description of method
 `registerClient(username)` | create a spaza_client in the database and returns a login code
 `clientLogin(code)` | returns the spaza_client info if it's a valid code
 `suggestProduct(areaId, clientId)` | suggest a product 
-`suggestions(clientId)` | show all the suggestions made by a spaza client - also returns the area_name area_id
+`suggestions(clientId)` | show all the suggestions made by a client - also returns the area_name & area_id.
 
 ### Spaza owner methods
 
