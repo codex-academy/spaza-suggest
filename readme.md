@@ -23,11 +23,13 @@ Ensure your web app have screens for the following:
 
 ## Planning
 
-Create some paper prototypes (draw them on paper) of the screens that you are planning to create and get them reviewed by a mentor before your start coding. If you are remote get your prototypes reviewed view zoom call/email.
+Create paper prototypes of the screens (draw them on paper) that you are planning to create and get them reviewed by a mentor before your start coding. If you are remote get your prototypes reviewed view zoom call/email.
 
 Create a Kanban board and share your planning with us at `mentors@projectcodex.co`.
 
-We will email you a feedback requrest form where you should submit your source and deployed app.
+We will email you a feedback request form where you should submit your source and deployed app.
+
+Any other planning instructions will be communicated with your on the day of the assessment. 
 
 ## Use the supplied Factory Function
 
