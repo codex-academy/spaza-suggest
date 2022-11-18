@@ -21,6 +21,14 @@ Ensure your web app have screens for the following:
 
 > **Tip:** store the logged in `client` or `spazashop` details in the session for easy access.
 
+## Planning
+
+Create some paper prototypes (draw them on paper) of the screens that you are planning to create and get them reviewed by a mentor before your start coding. If you are remote get your prototypes reviewed view zoom call/email.
+
+Create a Kanban board and share your planning with us at `mentors@projectcodex.co`.
+
+We will email you a feedback requrest form where you should submit your source and deployed app.
+
 ## Use the supplied Factory Function
 
 Use the supplied factory function in `spaza-suggest.js`.
@@ -77,3 +85,4 @@ Method name | Description of method
 -------|-----------
 `productsForArea(areaId)` | products suggested for an area
 `areas()` | return all areas
+
