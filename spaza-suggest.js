@@ -43,7 +43,7 @@ export default function SpazaSuggest (db){
     // show all the suggestions made by a user
     // TODO - review this... do we want this for a region...?
     async function suggestions(clientId) {
-        return await db.manyOrNone(`select * from suggestion where client_id = $1`, [clientId]);
+        return await db.manyOrNone(`select * from suggestion join area on suggestion.area_id = area.id where client_id = $1`, [clientId]);
     }
 
     // upvote a given suggesstion

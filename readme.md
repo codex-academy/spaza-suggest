@@ -13,6 +13,7 @@ Ensure your web app have screens for the following:
 * A new client can register and get a login code
 * A client can login using their login code
 * A logged in client can make product suggestions for a selected area. They can select the area to add a suggestion for. A blank suggestion should not be allowed.
+* A client should see all the suggestions that they have made and the area it was made for.
 
 * A Spaza shop owner can create an account linked to one area and get a login code.
 * Login using the spaza shop code and display all the suggestions for the area of the spaza shop
@@ -64,7 +65,7 @@ Method name | Description of method
 `registerClient(username)` | create a spaza_client in the database and returns a login code
 `clientLogin(code)` | returns the spaza_client info if it's a valid code
 `suggestProduct(areaId, clientId)` | suggest a product 
-`suggestions(clientId)` | show all the suggestions made by a spaza client
+`suggestions(clientId)` | show all the suggestions made by a spaza client - also returns the area_name area_id
 
 ### Spaza owner methods
 
