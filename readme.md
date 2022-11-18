@@ -44,17 +44,18 @@ Create an `index.js` for your ExpressJS web app.
 
 ## Factory function methods to use
 
-Use the supplied factory function in the `spaza-suggest.js` to build the screens above. Not that it is an es6 module.
+Use the supplied factory function in the `spaza-suggest.js` to build the screens above. Note that it is an es6 module.
 
 ### Spaza client methods
 
 The `spaza-suggest` factory function has these methods for spaza shop clients.
-
-* `registerUser(username)` - returns a login code
-* `userLogin(code)` - returns the user if it's a valid code
-* `suggestProduct(areaId, userId)` - suggest a product 
-* `suggestions(userId)` - show all the suggestions made by a user
-* `upvote(suggestionId, userId)` - upvote a given suggesstion
+Method name | Description of method
+-------|-----------
+`registerUser(username)` | returns a login code
+`userLogin(code)` | returns the user if it's a valid code
+`suggestProduct(areaId, userId)` | suggest a product 
+`suggestions(userId)` | show all the suggestions made by a user
+`upvote(suggestionId, userId)` | upvote a given suggesstion
 
 ### Spaza owner methods
 
