@@ -1,19 +1,23 @@
 # Smart Spaza
 
-Create an app that help Spaza Shops to crowdsource client product demand.
+Create an app that help Spaza Shops to crowdsource which products to sell in their shops.
 
-Create a web app that allows spaza shop clients to suggest which products spaza shops in a selected region should stock. Spaza shops are linked to a region. Spaza shops can see the suggested products for their region and then accept product suggestions.
+Create a web app that allows spaza shop clients to suggest which products spaza shops in a selected area should sell. 
+
+Each Spaza shops is linked to one area. Spaza shops can see the suggested products for their area and then accept product suggestions.
+
+## Screens to build
 
 Ensure your web app with screens for the following:
 
-* Create a new user and get the login code for the user
-* Allow a user to login
-* A logged in user can make product suggestions for a selected region
+* A new user can register and get the login code
+* A user can login using their login code
+* A logged in user can make product suggestions for a selected region. They can select the region to add a suggestion for. A blank suggestion should not be allowed.
 
-* A new Spaza shop can be created for a selected region
+* A Spaza shop owner can create an account linked to one region and get a login code.
 * Login using the spaza shop code and display all the suggestions for the region of the spaza shop
-* Allow a spaza shop user to accept any of the suggestions made
-* Show all the excepted suggestions for the logged in spaza shop
+* Allow a spaza shop user to accept any of the suggestions made.
+* Show all the accepted suggestions for the logged in spaza shop
 
 > **Tip:** store the logged in `client` or `spazashop` details in the session for easy access.
 
