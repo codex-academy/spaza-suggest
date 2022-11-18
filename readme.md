@@ -1,4 +1,4 @@
-# Smart Spaza
+# Spaza suggest
 
 Create an app that help Spaza Shops to crowdsource which products to sell in their shops.
 
