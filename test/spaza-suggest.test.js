@@ -3,7 +3,7 @@ import assert from 'assert';
 import SpazaSuggest from '../spaza-suggest.js';
 import pgPromise from 'pg-promise';
 
-const DATABASE_URL= process.env.DATABASE_URL || "postgresql://smarty:smart123@localhost:5432/smart_spaza";
+const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest";
 
 const config = { 
 	connectionString : DATABASE_URL
@@ -21,16 +21,21 @@ const spazaSuggest = SpazaSuggest(db);
 
 describe ("The smart spaza", function() {
 
+    beforeEach(async function() {
+
+        await db.none(`delete from spaze_client`);
+
+    });
+
+
     it("should be able to list areas", async function() {
         
-        
-
         assert.equal(1,2);
     });
 
     it("should be able to create a Spaza User and return a code", async function() {
 
-        const code = await spazaSuggest.registerUser('spazani');
+        const code = await spazaSuggest.registerClient('spazani');
 
         assert.ok(code);
 

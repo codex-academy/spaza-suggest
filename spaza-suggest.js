@@ -5,18 +5,18 @@ export default function SpazaSuggest (db){
     const uid = new ShortUniqueId({ length: 5 });
 
     //// returns client code
-    async function registerUser(username){
+    async function registerClient(username){
         // get the code
 
         const uniqCode = uid();
-        await db.none(`insert into username (username, code) values ($1, $2)`, [username, uniqCode])
+        await db.none(`insert into spaza_client (username, code) values ($1, $2)`, [username, uniqCode])
         return uniqCode;
 
     }
 
     // returns the user if it's a valid code
-    function userLogin(code)  {
-        `select * from spaza_user where code = $1`
+    function clientLogin(code)  {
+        `select * from spaza_client where code = $1`
     }
 
     // return all areas
@@ -71,12 +71,12 @@ export default function SpazaSuggest (db){
         acceptedSuggestions,
         areas,
         registerSpaza,
-        registerUser,
+        registerClient,
         spazaLogin,
         suggestProduct,
         suggestions,
         suggestionsForArea,
         likeSuggestion,
-        userLogin
+        clientLogin
     }
 }

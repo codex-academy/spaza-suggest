@@ -38,10 +38,10 @@ create table accepted_suggestion(
 create table liked_suggestion(
     id serial not null primary key,
     suggestion_id int not null,
-    user_id int not null,
+    client_id int not null,
     accepted_at datetime DEFAULT NOW,
     foreign key (suggestion_id) references suggestion(id),
-    foreign key (user_id) references spaza_user(id)
+    foreign key (client_id) references spaza_client(id)
 );
 
 
