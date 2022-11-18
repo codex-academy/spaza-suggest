@@ -46,11 +46,6 @@ export default function SpazaSuggest (db){
         return await db.manyOrNone(`select * from suggestion where client_id = $1`, [clientId]);
     }
 
-    //Show all suggestiom made by user for a area 
-//    async function clientSuggestionForArea(clientId, areaId) {
-//         const suggest = await db.manyOrNone(`select * from suggestion where area_id = $1 and client_id = $2`, [areaId, clientId]);
-//         return suggest;
-//     }
     // upvote a given suggesstion
     function likeSuggestion(suggestionId, userId) {
         `insert into liked_suggestion (suggestion_id, user_id) values ($1, $2)`;
@@ -114,7 +109,6 @@ export default function SpazaSuggest (db){
         suggestions,
         suggestionsForArea,
         likeSuggestion,
-        clientLogin,
-        clientSuggestionForArea
+        clientLogin
     }
 }
