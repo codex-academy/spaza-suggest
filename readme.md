@@ -61,15 +61,19 @@ Method name | Description of method
 
 The `spaza-suggest` factory function has these methods for spaza shops.
 
-* `registerSpaza(name, areaId)` - create the spaza shop and return a login code
-* `spazaLogin(code)` - return the spaza name & id  and areaId for the spaza shop
-* `suggestionsForArea(areaId)` - show all the suggestions for a given area
-* `acceptSuggestion(suggestionId, spazaId)`
-* `acceptedSuggestions(spazaId)` - return all the accepted suggestions for the spazaId provided
+Method name | Description of method
+-------|-----------
+`registerSpaza(name, areaId)` | create the spaza shop and return a login code
+`spazaLogin(code)` | return the spaza name & id  and areaId for the spaza shop
+`suggestionsForArea(areaId)` | show all the suggestions for a given area
+`acceptSuggestion(suggestionId, spazaId)` | accept a suggestion for a specific spaza shop
+`acceptedSuggestions(spazaId)` | return all the accepted suggestions for the spazaId provided
 
 ### General methods
 
 There are some methods in the Factory function that is not specific to a client or spaza shop
 
-* `productsForArea(areaId)` - products suggested for an area
-* `areas()` - return all areas
+Method name | Description of method
+-------|-----------
+`productsForArea(areaId)` | products suggested for an area
+`areas()` | return all areas
