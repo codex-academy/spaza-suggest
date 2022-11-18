@@ -25,10 +25,9 @@ Ensure your web app with screens for the following:
 
 Use the supplied factory function in `spaza-suggest.js`.
 
-Setup a database called `spaza_suggest` use the script in `001.db.sql` or do your own database setup.
+Create a PostgreSQL database called `spaza_suggest` use the script in `001.db.sql` or do your own database setup.
 
-
-Be sure to run `002.tables.sql` and `003.areas.sql` - before runing the tests.
+Run the `002.tables.sql` and `003.areas.sql` scripts to create the tables and to populate the areas in the database. You can add your own areas if you want. Just don't remove the areas that is already in `003.areas.sql`.
 
 Run these commands to install all dependencies & to run the tests
 
@@ -37,33 +36,39 @@ npm install
 npm test
 ```
 
-All the tests should pass if you ran the db script correctly.
+All the tests should pass if you ran the db scripts correctly.
 
-Don't start with the web app before your tests are passing locally.
+Don't start creating the web app if your tests are not passing.
 
 Create an `index.js` for your ExpressJS web app.
 
 ## Factory function methods to use
 
-Use the supplied factory function to build the screens above.
+Use the supplied factory function in the `spaza-suggest.js` to build the screens above. Not that it is an es6 module.
 
 ### Spaza client methods
 
-* `registerUser(username)` - returns client code
+The `spaza-suggest` factory function has these methods for spaza shop clients.
+
+* `registerUser(username)` - returns a login code
 * `userLogin(code)` - returns the user if it's a valid code
-* `areas()` - return all areas
 * `suggestProduct(areaId, userId)` - suggest a product 
-* `productsForArea(areaId)` - products suggested for an area
 * `suggestions(userId)` - show all the suggestions made by a user
 * `upvote(suggestionId, userId)` - upvote a given suggesstion
 
 ### Spaza owner methods
 
-* `registerSpaza(name, areaId)` - create the spaza shop and return a code
+The `spaza-suggest` factory function has these methods for spaza shops.
+
+* `registerSpaza(name, areaId)` - create the spaza shop and return a login code
 * `spazaLogin(code)` - return the spaza name & id  and areaId for the spaza shop
 * `suggestionsForArea(areaId)` - show all the suggestions for a given area
 * `acceptSuggestion(suggestionId, spazaId)`
 * `acceptedSuggestions(spazaId)` - return all the accepted suggestions for the spazaId provided
 
+### General methods
 
+There are some methods in the Factory function that is not specific to a client or spaza shop
 
+* `productsForArea(areaId)` - products suggested for an area
+* `areas()` - return all areas
