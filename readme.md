@@ -10,13 +10,13 @@ Each Spaza shops is linked to one area. Spaza shops can see the suggested produc
 
 Ensure your web app with screens for the following:
 
-* A new user can register and get the login code
-* A user can login using their login code
-* A logged in user can make product suggestions for a selected region. They can select the region to add a suggestion for. A blank suggestion should not be allowed.
+* A new client can register and get the login code
+* A client can login using their login code
+* A logged in client can make product suggestions for a selected area. They can select the area to add a suggestion for. A blank suggestion should not be allowed.
 
-* A Spaza shop owner can create an account linked to one region and get a login code.
-* Login using the spaza shop code and display all the suggestions for the region of the spaza shop
-* Allow a spaza shop user to accept any of the suggestions made.
+* A Spaza shop owner can create an account linked to one area and get a login code.
+* Login using the spaza shop code and display all the suggestions for the area of the spaza shop
+* Allow a spaza shop owner to accept any of the suggestions made.
 * Show all the accepted suggestions for the logged in spaza shop
 
 > **Tip:** store the logged in `client` or `spazashop` details in the session for easy access.
@@ -51,8 +51,8 @@ Use the supplied factory function in the `spaza-suggest.js` to build the screens
 The `spaza-suggest` factory function has these methods for spaza shop clients.
 Method name | Description of method
 -------|-----------
-`registerUser(username)` | returns a login code
-`userLogin(code)` | returns the user if it's a valid code
+`registerClient(username)` | create a client in the database and returns a login code
+`clientLogin(code)` | returns the client info if it's a valid code
 `suggestProduct(areaId, userId)` | suggest a product 
 `suggestions(userId)` | show all the suggestions made by a user
 `upvote(suggestionId, userId)` | upvote a given suggesstion
