@@ -22,7 +22,7 @@ create table suggestion (
 	product_name text not null,
     area_id int not null,
     client_id int not null,
-    foreign key (category_id) references categories(id),
+    foreign key (area_id) references area(id),
     foreign key (client_id) references spaza_client(id)
 );
 
@@ -30,7 +30,7 @@ create table accepted_suggestion(
     id serial not null primary key,
     suggestion_id int not null,
     spaza_id int not null,
-    accepted_at datetime DEFAULT NOW,
+    accepted_at timestamp DEFAULT NOW(),
     foreign key (suggestion_id) references suggestion(id),
     foreign key (spaza_id) references spaza(id)
 );
@@ -39,7 +39,7 @@ create table liked_suggestion(
     id serial not null primary key,
     suggestion_id int not null,
     client_id int not null,
-    accepted_at datetime DEFAULT NOW,
+    accepted_at timestamp DEFAULT NOW(),
     foreign key (suggestion_id) references suggestion(id),
     foreign key (client_id) references spaza_client(id)
 );

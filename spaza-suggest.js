@@ -15,26 +15,35 @@ export default function SpazaSuggest (db){
     }
 
     // returns the user if it's a valid code
-    function clientLogin(code)  {
-        `select * from spaza_client where code = $1`
+    async function clientLogin(code)  {
+        const client = await db.oneOrNone(`select * from spaza_client where code = $1`, [code]);
+        return client
     }
 
     // return all areas
-    function areas() {
-        `select * from area order by name asc`;
+    async function areas() {
+        const areas = await db.manyOrNone(`select * from area order by area_name asc`)
+        return areas;
     }
 
-    function suggestProduct(areaId, userId, suggestion) {
-        `insert into suggestion(area_id, user_id, suggestion) values ($1, $2, $3)`
+    async function findAreaByName(name) {
+        const area = await db.oneOrNone(`select * from area where area_name = $1`, [name])
+        return area;
     }
 
-    function suggestionsForArea(areaId) {
-        `select * from suggestions where area_id = $1`;
+    async function suggestProduct(areaId, clientId, suggestion) {
+        await db.none(`insert into suggestion(area_id, client_id, product_name) values ($1, $2, $3)`, 
+            [areaId, clientId, suggestion])
+    }
+
+    async function suggestionsForArea(areaId) {
+        return await db.manyOrNone(`select * from suggestion where area_id = $1`, [areaId]);
     }
 
     // show all the suggestions made by a user
-    function suggestions(userId) {
-        `select * from suggestion where user_id = $1`;
+    // TODO - review this... do we want this for a region...?
+    async function suggestions(clientId) {
+        return await db.manyOrNone(`select * from suggestion where client_id = $1`, [clientId]);
     }
 
     // upvote a given suggesstion
@@ -43,13 +52,19 @@ export default function SpazaSuggest (db){
     }
 
     // create the spaza shop and return a code
-    function registerSpaza(name, areaId) {
-        ``
+    async function registerSpaza(name, areaId) {
+        
+        const uniqCode = uid();
+        await db.none(`insert into spaza (shop_name, area_id, code) values ($1, $2, $3)`, 
+            [name, areaId, uniqCode]);
+        return uniqCode;
+
     }
     
     // return the spaza name & id  and areaId for the spaza shop
-    function spazaLogin(code) {
-        `insert into spaza (name, code) values ($1, $2)`
+    async function spazaLogin(code) {
+        const spaza = await db.oneOrNone(`select * from spaza where code = $1`, [code]);
+        return spaza;
     }
     
     // show all the suggestions for a given area
@@ -57,19 +72,30 @@ export default function SpazaSuggest (db){
     //     ``
     // }
     
-    function acceptSuggestion(suggestionId, spazaId) {
-        `insert into accepted_suggestion(suggestion_id, spaza_id) values ($1, $2)`
+    async function acceptSuggestion(suggestionId, spazaId) {
+        await db.none(`insert into accepted_suggestion(suggestion_id, spaza_id) values ($1, $2)`,
+            [suggestionId, spazaId])
     }
-    
+
+
     // return all the accepted suggestions for the spazaId provided
-    function acceptedSuggestions(spazaId) {
-        `select * from suggestion join accepted_suggestion where suggestion.id = accepted_suggestion.id and accepted_suggestion.spaza_id = $1`
+    async function acceptedSuggestions(spazaId) {
+
+        const suggesstions = await db.manyOrNone(`
+            select * from suggestion join accepted_suggestion 
+            on suggestion.id = accepted_suggestion.suggestion_id 
+            where accepted_suggestion.spaza_id = $1`, [spazaId])
+        
+        // console.log(suggesstions);
+
+        return suggesstions;
     }
 
     return {
         acceptSuggestion,
         acceptedSuggestions,
         areas,
+        findAreaByName,
         registerSpaza,
         registerClient,
         spazaLogin,
