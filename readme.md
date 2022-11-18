@@ -65,7 +65,6 @@ Method name | Description of method
 `clientLogin(code)` | returns the spaza_client info if it's a valid code
 `suggestProduct(areaId, userId)` | suggest a product 
 `suggestions(userId)` | show all the suggestions made by a user
-`upvote(suggestionId, userId)` | upvote a given suggesstion
 
 ### Spaza owner methods
 
