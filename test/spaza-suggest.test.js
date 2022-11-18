@@ -2,8 +2,9 @@ import assert from 'assert';
 
 import SpazaSuggest from '../spaza-suggest.js';
 import pgPromise from 'pg-promise';
+import { log } from 'console';
 
-const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest";
+const DATABASE_URL= process.env.DATABASE_URL || "postgresql://codex-coder:pg123@localhost:5432/spaza_suggest";
 
 const config = { 
 	connectionString : DATABASE_URL
@@ -29,7 +30,6 @@ describe ("The smart spaza", function() {
         await db.none(`delete from spaza_client`);
         
     });
-
 
     it("should be able to list areas", async function() {
         
@@ -85,6 +85,7 @@ describe ("The smart spaza", function() {
         assert.equal('Baked Beans', suggestions[1].product_name);
 
     });
+
 
     it("should be able to get all the suggestions made by a client", async function() {
 
@@ -145,8 +146,8 @@ describe ("The smart spaza", function() {
 
     });
 
-    // it("should be able to see all the accepted suggestions for a Spaza", async function(){
-    //     assert.equal(1,2);
-    // });
-
+    after(function () {
+        db.$pool.end
+    });
+   
 });
