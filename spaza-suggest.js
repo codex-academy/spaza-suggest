@@ -1,10 +1,17 @@
+import ShortUniqueId from 'short-unique-id';
 
-export default function SmartSpaza (){
+export default function SpazaSuggest (db){
+
+    const uid = new ShortUniqueId({ length: 5 });
 
     //// returns client code
-    function registerUser(username){
+    async function registerUser(username){
         // get the code
-        `insert intro username (username, code) values ($1, $2)`
+
+        const uniqCode = uid();
+        await db.none(`insert into username (username, code) values ($1, $2)`, [username, uniqCode])
+        return uniqCode;
+
     }
 
     // returns the user if it's a valid code

@@ -22,17 +22,14 @@
     "email": "",
     "url": ""
   },
-  "contributors": [
-
-  ],
+  "contributors": [],
   "scripts": {
     "dev": "",
-    "test": ""
+    "test": "mocha"
   },
   "dependencies": {
-
-  },
-  "devDependencies": {
-
+    "mocha": "^10.1.0",
+    "pg-promise": "^10.15.0",
+    "short-unique-id": "^4.4.4"
   }
 }
