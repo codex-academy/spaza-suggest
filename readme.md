@@ -34,7 +34,9 @@ Any other planning instructions will be communicated with your on the day of the
 
 ## Use the supplied Factory Function
 
-Fork this repo into your GitHub acount. Then clone your own version of this repo into your local project folder.
+Fork this repo into your GitHub acount. 
+
+Then clone your own version of this repo into your local `project` folder.
 
 Use the supplied factory function in `spaza-suggest.js` in your ExpressJS app.
 
