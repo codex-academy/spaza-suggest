@@ -34,11 +34,13 @@ Any other planning instructions will be communicated with your on the day of the
 
 ## Use the supplied Factory Function
 
-Use the supplied factory function in `spaza-suggest.js`.
+Fork this repo into your GitHub acount. Then clone your own version of this repo into your local project folder.
+
+Use the supplied factory function in `spaza-suggest.js` in your ExpressJS app.
 
 Create a PostgreSQL database called `spaza_suggest` use the script in `001.db.sql` or do your own database setup.
 
-Run the `002.tables.sql` and `003.areas.sql` scripts to create the tables and to populate the areas in the database. You can add your own areas if you want. Just don't remove the areas that is already in `003.areas.sql`.
+Run the `002.tables.sql` and `003.areas.sql` scripts to create the tables and to populate the areas in the database. You can add your own areas if you want. Just don't remove the areas that is already in `003.areas.sql` the unit tests are depening on them.
 
 Run these commands to install all dependencies & to run the tests
 
@@ -49,9 +51,9 @@ npm test
 
 All the tests should pass if you ran the db scripts correctly.
 
-Don't start creating the web app if your tests are not passing.
+Don't start creating the web app if your tests are not passing. Get assistance & clarification if needed from the `mentors@projectcodex.co` before potentially blindly proceeding.
 
-Create an `index.js` for your ExpressJS web app.
+Create an `index.js` file for your ExpressJS web app.
 
 ## Factory function methods to use
 
