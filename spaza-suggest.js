@@ -23,7 +23,6 @@ module.exports =  function SpazaSuggest (db){
     // returns the user if it's a valid code
     async function clientLogin(code)  {
         const client = await db.oneOrNone(`select * from spaza_client where code = $1`, [code]);
-        console.log(client)
         return client
     }
 
