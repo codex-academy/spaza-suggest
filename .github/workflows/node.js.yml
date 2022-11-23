@@ -20,7 +20,7 @@ jobs:
         env:
           POSTGRES_USER: zuggs
           POSTGRES_PASSWORD: suggest123
-          POSTGRES_DB: spaza_suggest
+          POSTGRES_DB: spaza_suggest_test
         ports:
         - 5432:5432
         # Set health checks to wait until postgres has started
