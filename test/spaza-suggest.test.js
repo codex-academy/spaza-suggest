@@ -7,7 +7,7 @@ const SpazaSuggest = require('../spaza-suggest')
 const pgPromise = require('pg-promise')
 
 // const DATABASE_URL= process.env.DATABASE_URL || "postgresql://codex-coder:pg123@localhost:5432/spaza_suggest";
-const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest";
+const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest_test";
 
 const config = { 
 	connectionString : DATABASE_URL

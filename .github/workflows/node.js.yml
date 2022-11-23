@@ -39,4 +39,4 @@ jobs:
       run:
         npm test
       env:
-        DATABASE_URL: postgresql://zuggs:suggest123@localhost:5432/spaza_suggest
+        DATABASE_URL: postgresql://zuggs:suggest123@localhost:5432/spaza_suggest_test
