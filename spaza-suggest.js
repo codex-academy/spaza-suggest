@@ -1,6 +1,7 @@
-import ShortUniqueId from 'short-unique-id';
+// import ShortUniqueId from 'short-unique-id';
+const ShortUniqueId = require('short-unique-id')
 
-export default function SpazaSuggest (db){
+module.exports =  function SpazaSuggest (db){
 
     const uid = new ShortUniqueId({ length: 5 });
 
@@ -10,6 +11,7 @@ export default function SpazaSuggest (db){
 
         const uniqCode = uid();
         await db.none(`insert into spaza_client (username, code) values ($1, $2)`, [username, uniqCode])
+        
         return uniqCode;
 
     }
