@@ -27,7 +27,8 @@
   "contributors": [],
   "scripts": {
     "dev": "",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.1",

@@ -54,6 +54,9 @@ app.use(express.static('public'));
 
 app.get('/', spazaRoute.displayRegPage);
 app.post('/', spazaRoute.addUser);
+app.get('/login/:name', spazaRoute.displayLogin);
+app.post('/login/:name', spazaRoute.getUsersCode);
+app.get('/suggest-page/:name', spazaRoute.displaySuggestion)
 
 
 
