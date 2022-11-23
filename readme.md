@@ -4,7 +4,7 @@ Create an app that help Spaza Shops to crowdsource which products to sell in the
 
 Create a web app that allows spaza shop clients to suggest which products spaza shops in a selected area should sell. 
 
-Each Spaza shops is linked to one area. Spaza shops can see the suggested products for their area and then accept product suggestions.
+Each Spaza shop is linked to one area. Spaza shops can see the suggested products for their area and then accept product suggestions. Keep records are of suggestions accepted by each Spaza shop.
 
 ## Screens to build
 
@@ -18,9 +18,9 @@ Ensure your web app have screens for the following:
 * A Spaza shop owner can create an account linked to one area and get a login code.
 * Login using the spaza shop code and display all the suggestions for the area of the spaza shop
 * Allow a spaza shop owner to accept any of the suggestions made.
-* Show all the accepted suggestions for the logged in spaza shop
+* Show all the accepted suggestions for the logged in spaza shop.
 
-> **Tip:** store the logged in `client` or `spazashop` details in the session for easy access.
+> **Tip:** store the logged in `client` or `spaza shop` details in the Http Session for easy access. Use something like `session.client` and `session.shop` for example - one of these 2 entries should be in the session at any given time.
 
 ## Planning
 
