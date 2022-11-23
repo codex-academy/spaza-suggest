@@ -34,7 +34,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: create postgresql tables
-      run: PGPASSWORD=suggest123 psql -h localhost -U zuggs -d spaza_suggest -a -f ./sql/002.tables.sql 
+      run: PGPASSWORD=suggest123 psql -h localhost -U zuggs -d spaza_suggest_test -a -f ./sql/002.tables.sql 
     - name: run tests with postgresql
       run:
         npm test
