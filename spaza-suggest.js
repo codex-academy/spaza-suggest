@@ -1,15 +1,21 @@
-import ShortUniqueId from 'short-unique-id';
+// import ShortUniqueId from 'short-unique-id';
+const ShortUniqueId = require('short-unique-id')
 
-export default function SpazaSuggest (db){
+module.exports =  function SpazaSuggest (db){
 
-    const uid = new ShortUniqueId({ length: 5 });
+     const uid = new ShortUniqueId({ length: 5 });
 
     //// returns client code
     async function registerClient(username){
         // get the code
-
+        let client_name = username.charAt(0).toUpperCase() + username.slice(1);
+        let regex = /^[a-z A-Z]+$/gi
         const uniqCode = uid();
+        let results = await db.manyOrNone('SELECT username FROM spaza_client where username = $1', [client_name])
+        
+        if (results.length == 0 && client_name !== "" && regex && regex.test(client_name)) {
         await db.none(`insert into spaza_client (username, code) values ($1, $2)`, [username, uniqCode])
+        }
         return uniqCode;
 
     }

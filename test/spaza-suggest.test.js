@@ -1,10 +1,13 @@
-import assert from 'assert';
+// import assert from 'assert';
+const assert = require('assert')
 
-import SpazaSuggest from '../spaza-suggest.js';
-import pgPromise from 'pg-promise';
+// import SpazaSuggest from '../spaza-suggest.js';
+const SpazaSuggest = require('../spaza-suggest')
+// import pgPromise from 'pg-promise';
+const pgPromise = require('pg-promise')
 
 // const DATABASE_URL= process.env.DATABASE_URL || "postgresql://codex-coder:pg123@localhost:5432/spaza_suggest";
-const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest";
+const DATABASE_URL= process.env.DATABASE_URL || "postgresql://zuggs:suggest123@localhost:5432/spaza_suggest_test";
 
 const config = { 
 	connectionString : DATABASE_URL
@@ -102,7 +105,7 @@ describe ("The smart spaza", function() {
         const suggestions = await spazaSuggest.suggestions(client.id);
 
         assert.equal(3, suggestions.length);
-        assert.equal('Nyanga East', suggestions[1].area_name);
+        assert.deepEqual('Nyanga East', suggestions[1].area_name);
 
     });
 

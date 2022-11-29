@@ -1,0 +1,30 @@
+<div>
+   
+    <form autocomplete="off" action="/addSugg/{{user}}" method="POST">
+    <h3><u>Add suggestion</u></h3><br>
+
+    <label for="">Product:</label><br>
+    <input type="text" name="product"> <br><br>
+
+    <label for="">Category:</label><br>
+    <select name="areas" id="">
+        <option value="">Select</option>
+        <option value="Khayelitsa - Site B" >Khayelitsa - Site B</option>
+        <option value="Khayelitsa - Site C">Khayelitsa - Site C</option>
+        <option value="Khayelitsa - Makhaza">Khayelitsa - Makhaza</option>
+        <option value="Nyanga">Nyanga</option>
+        <option value="Nyanga East">Nyanga East</option>
+    </select><br><br>
+
+    <button type="submit">Suggest</button><br><br>
+
+     {{#if messages.success}}
+      <div class="success">
+        <p id="successMessage"> {{messages.success}}</p>
+
+      </div>
+      <script type="text/javascript">window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); </script>
+      {{/if}}
+    </form>
+
+</div>
